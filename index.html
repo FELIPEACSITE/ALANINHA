@@ -36,23 +36,23 @@
             margin: 10px;
             border-radius: 10px;
         }
-        /* Estilo para o contêiner do vídeo */
+        /* Contêiner para o vídeo */
         #videoContainer {
             position: relative;
-            width: 640px;
-            height: 360px;
-            overflow: hidden;
-            margin: 0 auto;
+            width: 100%; /* O vídeo vai ocupar 100% da largura disponível */
+            max-width: 640px; /* Largura máxima de 640px (ajuste conforme necessário) */
+            height: auto; /* A altura vai ajustar automaticamente com base na proporção */
+            margin: 0 auto; /* Para centralizar o vídeo */
         }
-        /* Ajustar o iframe para preencher o contêiner sem distorcer */
+
+        /* Ajusta o iframe para ser responsivo */
         #videoContainer iframe {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Isso garante que o vídeo ocupe todo o espaço */
+            top: 0;
+            left: 0;
+            width: 100%; /* O vídeo vai ocupar toda a largura do contêiner */
+            height: 100%; /* A altura vai se ajustar automaticamente */
+            object-fit: cover; /* Garante que o vídeo cubra toda a área do contêiner */
         }
     </style>
 </head>
@@ -88,7 +88,7 @@
         
         <!-- Vídeo escondido inicialmente -->
         <div id="videoContainer" class="hidden">
-            <iframe src="https://drive.google.com/file/d/16Va_e2lPFXYokMLKbhv6jByHRanfvMez/preview" width="640" height="360" allow="autoplay"></iframe>
+            <iframe src="https://drive.google.com/file/d/16Va_e2lPFXYokMLKbhv6jByHRanfvMez/preview" allow="autoplay"></iframe>
         </div>
     </div>
 
@@ -104,4 +104,3 @@
     </script>
 </body>
 </html>
-
