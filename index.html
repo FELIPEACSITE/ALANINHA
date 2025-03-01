@@ -36,24 +36,6 @@
             margin: 10px;
             border-radius: 10px;
         }
-        /* Contêiner para o vídeo */
-        #videoContainer {
-            position: relative;
-            width: 100%; /* O vídeo vai ocupar 100% da largura disponível */
-            max-width: 640px; /* Largura máxima de 640px (ajuste conforme necessário) */
-            height: auto; /* A altura vai ajustar automaticamente com base na proporção */
-            margin: 0 auto; /* Para centralizar o vídeo */
-        }
-
-        /* Ajusta o iframe para ser responsivo */
-        #videoContainer iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; /* O vídeo vai ocupar toda a largura do contêiner */
-            height: 100%; /* A altura vai se ajustar automaticamente */
-            object-fit: cover; /* Garante que o vídeo cubra toda a área do contêiner */
-        }
     </style>
 </head>
 <body>
@@ -81,25 +63,12 @@
             <img src="foto2.jpg" alt="Foto 2">
             <img src="foto3.jpg" alt="Foto 3">
         </div>
-        
-        <!-- Botão para abrir o vídeo -->
-        <h2>Nosso Vídeo 💖</h2>
-        <button class="btn" onclick="showVideo()">Assistir ao vídeo</button>
-        
-        <!-- Vídeo escondido inicialmente -->
-        <div id="videoContainer" class="hidden">
-            <iframe src="https://drive.google.com/file/d/16Va_e2lPFXYokMLKbhv6jByHRanfvMez/preview" allow="autoplay"></iframe>
-        </div>
     </div>
 
     <script>
         function showLetter() {
             document.getElementById("letter").classList.toggle("hidden");
             document.getElementById("music").play();
-        }
-
-        function showVideo() {
-            document.getElementById("videoContainer").classList.toggle("hidden");
         }
     </script>
 </body>
