@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página 1</title>
     <style>
+        /* Estilos do body */
         body {
-            background: url('https://i.imgur.com/bINqQwr.png') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            position: relative; /* Definir como relativo para que os botões possam ser posicionados */
+            padding: 0;
+            overflow: hidden; /* Previne barras de rolagem */
         }
 
+        /* A imagem agora será um elemento img, não mais background */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* A imagem ocupa a altura total da tela */
+            object-fit: cover; /* Faz a imagem preencher a tela sem distorcer */
+        }
+
+        /* Estilos dos botões */
         button {
             background-color: #FF69B4;
             color: pink;
@@ -25,7 +31,7 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            position: absolute; /* Tornar os botões absolutos para controle de posição */
+            position: absolute; /* Posiciona os botões de forma absoluta */
             bottom: 20px; /* Distância da parte inferior */
         }
 
@@ -46,9 +52,15 @@
     </style>
 </head>
 <body>
+
+    <!-- A imagem de fundo agora é um elemento <img> -->
+    <img src="https://i.imgur.com/Fg1h1FU.png" alt="Imagem de fundo" class="background-image">
+
+    <!-- Botões de navegação -->
     <div>
         <button class="left" onclick="window.location.href='https://felipeacsite.github.io/ALANINHA/vidinha'"><</button>
         <button class="right" onclick="window.location.href='https://felipeacsite.github.io/ALANINHA/perfeita'">></button>
     </div>
+
 </body>
 </html>
