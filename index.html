@@ -52,8 +52,8 @@
         
         <h2>Realmente você é o amor da minha vida, Não consigo me imaginar sem você.</h2>
         <div class="timeline">
-            <p>📌 262 dias juntos</p>
-            <p>📌 59 dias com aliança</p>
+            <p>📌 <span id="contadorDias"></span> dias juntos</p>
+            <p>📌 <span id="contadorAliança"></span> dias com aliança</p>
             <p>💖 Mesmo assim, ficar um dia sem você parece uma eternidade</p>
             <p>💓 Obrigado por todo esse tempo junto comigo, quero ficar com você para sempre</p>
         </div>
@@ -63,9 +63,39 @@
         <p id="letter" class="hidden"><button onclick="window.location.href='https://felipeacsite.github.io/ALANINHA/mesversário'">💖</button></p>
         
         <audio id="music" src="seu_audio.mp3"></audio>
-        
-        
+    </div>
+    
     <script>
+        // Defina a data de início para o contador de dias juntos
+        var dataInicio = new Date("2024-06-15T00:00:00");
+
+        // Defina a data de início para o contador de dias com aliança
+        var dataAliança = new Date("2025-01-04T00:00:00");
+
+        // Função para calcular a diferença de dias juntos
+        function calcularDias() {
+            var hoje = new Date();
+            var diferença = hoje - dataInicio; // diferença em milissegundos
+            var dias = Math.floor(diferença / (1000 * 3600 * 24)); // converte para dias
+            document.getElementById("contadorDias").textContent = dias;
+        }
+
+        // Função para calcular a diferença de dias com aliança
+        function calcularAliança() {
+            var hoje = new Date();
+            var diferença = hoje - dataAliança; // diferença em milissegundos
+            var diasAliança = Math.floor(diferença / (1000 * 3600 * 24)); // converte para dias
+            document.getElementById("contadorAliança").textContent = diasAliança;
+        }
+
+        // Chama as funções imediatamente para mostrar os valores iniciais
+        calcularDias();
+        calcularAliança();
+
+        // Atualiza os contadores a cada 1 segundo (1000 ms)
+        setInterval(calcularDias, 1000);
+        setInterval(calcularAliança, 1000);
+
         function showLetter() {
             document.getElementById("letter").classList.toggle("hidden");
             document.getElementById("music").play();
