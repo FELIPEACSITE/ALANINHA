@@ -24,7 +24,7 @@
             width: 100%; /* Ajusta a largura das imagens */
         }
 
-        /* Estilos do botão */
+        /* Estilos dos botões */
         button {
             background-color: #FF69B4; /* Cor de fundo rosa */
             color: white;
@@ -33,9 +33,6 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            position: fixed; /* Faz o botão ficar fixo na tela */
-            bottom: 20px; /* 20px de distância da parte inferior da tela */
-            left: 20px; /* 20px de distância da borda esquerda da tela */
             z-index: 1000; /* Garante que o botão fique sobre outros elementos */
         }
 
@@ -44,6 +41,39 @@
             background-color: #C71585; /* Cor de fundo mais escura quando o mouse passa em cima */
         }
 
+        /* Estilos específicos para o botão Play/Pause */
+        #playPauseButton {
+            background-color: #FF69B4; /* Cor rosa */
+            border: none;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 10px;
+            position: fixed;
+            top: 20px; /* Botão no topo */
+            left: 20px; /* 20px de distância da borda esquerda da tela */
+        }
+        #playPauseButton:hover {
+            background-color: #FF1493; /* Cor rosa mais forte ao passar o mouse */
+        }
+
+        /* Estilos específicos para o botão que leva para a página */
+        #goToPageButton {
+            background-color: #FF69B4; /* Cor rosa */
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            position: fixed;
+            bottom: 20px; /* Botão no fundo */
+            left: 20px; /* 20px de distância da borda esquerda da tela */
+        }
+        #goToPageButton:hover {
+            background-color: #C71585; /* Cor de fundo mais escura quando o mouse passa em cima */
+        }
     </style>
 </head>
 <body>
@@ -55,8 +85,23 @@
     <img src="https://i.imgur.com/qR14xeQ.png" alt="Imagem 4" class="imagem">
     <img src="https://i.imgur.com/CQQcG5E.png" alt="Imagem 5" class="imagem">
 
+    <!-- Botão Play/Pause -->
+    <audio id="music" src="https://raw.githubusercontent.com/FELIPEACSITE/ALANINHA/main/musiquinha.mp3" preload="auto" volume="0.5"></audio>
+    <button id="playPauseButton" onclick="togglePlayPause()">&#9654;</button>
+
     <!-- Botão que leva para a página -->
-    <button onclick="window.location.href='https://felipeacsite.github.io/ALANINHA/'"> &lt; </button>
+    <button id="goToPageButton" onclick="window.location.href='https://felipeacsite.github.io/ALANINHA/'"> &lt; </button>
+
+    <script>
+        const music = document.getElementById('music');
+        const playPauseButton = document.getElementById('playPauseButton');
+        music.volume = 0.5; // Define o volume para 50%
+        
+        function togglePlayPause() {
+            music.paused ? music.play() : music.pause();
+            playPauseButton.innerHTML = music.paused ? '&#9654;' : '&#10074;&#10074;';
+        }
+    </script>
 
 </body>
 </html>
